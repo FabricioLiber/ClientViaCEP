@@ -1,0 +1,23 @@
+<app-layout>
+
+  <form #cepForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>CEP</label>
+      <input type="number" name="cep" [(ngModel)]="cep" class="form-control form-control-lg" placeholder="Informe o CEP para encontrar o endereço">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </form>
+
+  <br><hr>
+
+  <p *ngIf="error" style="color: red;">O CEP não foi encontrado ou não existe!</p>
+
+  <ul *ngIf="endereco!=null" class="list-group">
+    <li class="list-group-item active">{{endereco.cep}}</li>
+    <li class="list-group-item"><b>Rua: </b> {{endereco.logradouro}}</li>
+    <li class="list-group-item"><b>Bairro: </b> {{endereco.bairro}}</li>
+    <li class="list-group-item"><b>Cidade: </b> {{endereco.localidade}}</li>
+    <li class="list-group-item"><b>Estado: </b> {{endereco.uf}}</li>
+  </ul>
+
+</app-layout>
